@@ -8,6 +8,7 @@ const logger = require('morgan');
 const GlobalErrorHandler = require('./controllers/ErrorController');
 const ConnectDB = require('./db');
 const userRouter = require('./routes/userRoutes');
+const ticketRouter = require('./routes/ticketRoutes');
 const app = express();
 
 ConnectDB();
@@ -27,6 +28,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/api/users', userRouter);
+app.use('/api/tickets', ticketRouter);
 
 app.use(GlobalErrorHandler);
 
